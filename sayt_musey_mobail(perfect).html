@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+     <meta charset="utf-8">
+     <title>Онлайн музей истории города Ярославля</title>
+     <link href="css/index.css" rel="stylesheet" type="text/css" media="screen">
+     <script>
+        window.addEventListener('resize', function() {
+          if (window.innerWidth > 1024) {
+            // Вывести сообщение в браузере
+            alert("К сожалению из-за временных проблем с оптимизацией вход на сайт с устройства с данным размером экрана не представляется возможным. Команда разработчиков приносит свои искренние извинения");
+            window.location.href = "https://www.yandex.ru";
+          }
+        });
+      </script>
+
+</head>
+<body>
+     <div class="div_logo">
+          <img class="logo" align="left" src="files/logo.png" style="width: 40%;">
+     </div>
+     </br></br></br></br></br>
+     <div class="div_map_zeml_val">
+         <iframe src="str/interactive_map_zeml_val.html" style="width: 100%; height: 100%;" frameborder="0" style="border: 0px"></iframe>
+     </div>
+</body>
+</html>

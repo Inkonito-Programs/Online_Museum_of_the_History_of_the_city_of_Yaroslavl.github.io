@@ -1,0 +1,66 @@
+.leaflet-container {
+      height: 100%;
+      width: 100%;
+      max-width: 100%;
+      max-height: 100%;
+}
+.leaflet-bottom.leaflet-right{
+  visibility: hidden;
+}
+    
+@media screen and (max-width: 1024px){
+    html, body {
+          height: 100%;
+          margin: 0;
+          background: url(../files/fon.jpg) no-repeat center center fixed;/*Растягиваем фоновую картинку на весь экран (адаптация)*/
+           -webkit-background-size: cover;
+           -moz-background-size: cover;
+           -o-background-size: cover;
+           background-size: cover;
+    }
+    .div-image{
+        height: 25%;
+    }
+    .logo-image{
+        width: 30%;
+        position: fixed;
+        top: 1.5vw;
+        left: 2%;
+        }
+    #map{
+        width: 90%;
+        height: 70%;
+        margin: 0 auto;
+        border-radius: 30px;
+        border: 4mm ridge rgba(211, 220, 50, .6);
+    }
+}
+    
+/*Для экранов размером больше 1024 пикселей*/
+@media screen and (min-width: 1024px){
+    html, body {
+     height: 100%;
+     margin: 0;
+     background: url(../files/fon-forPC.jpg) no-repeat center center fixed;/*Растягиваем фоновую картинку на весь экран (адаптация)*/
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+        }
+    .div-image{
+        height: 25%;
+    }
+    .logo-image{
+        width: 13%;
+        position: fixed;
+        top: 1.5vw;
+        left: 2%;
+    }
+    #map{
+        width: 60%;
+        height: 70%;
+        margin: 0 auto;
+        border-radius: 30px;
+        border: 4mm ridge rgba(211, 220, 50, .6);
+    }
+}
