@@ -32,7 +32,7 @@
         height: 70%;
         margin: 0 auto;
         border-radius: 30px;
-        border: 4mm ridge rgba(211, 220, 50, .6);
+        border: 3.5mm ridge rgba(143, 188, 143);
     }
 }
     
@@ -61,6 +61,6 @@
         height: 70%;
         margin: 0 auto;
         border-radius: 30px;
-        border: 4mm ridge rgba(211, 220, 50, .6);
+        border: 3.5mm ridge rgba(143, 188, 143);
     }
 }
