@@ -34,6 +34,9 @@
         border-radius: 30px;
         border: 3.5mm ridge rgba(143, 188, 143);
     }
+    .curb{
+        display: none;   
+    }
 }
     
 /*Для экранов размером больше 1024 пикселей*/
@@ -55,6 +58,8 @@
         position: fixed;
         top: 1.5vw;
         left: 2%;
+        border: 0.4mm ridge rgba(165, 42, 42);
+        border-radius: 20px;
     }
     #map{
         width: 60%;
