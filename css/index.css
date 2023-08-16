@@ -26,13 +26,29 @@
         position: fixed;
         top: 1.5vw;
         left: 26%;
+        display: none; 
         }
+    .old_gerb_image{
+        width: 20%;
+        position: fixed;
+        top: 0.6vw;
+        left: 2%;
+        display: none;  
+    }
+    .nadpis_image{
+        width: 95%;
+        position: fixed;
+        top: 0.6vw;
+        left: 2.4%;
+    }
     #map{
         width: 90%;
         height: 70%;
         margin: 0 auto;
         border-radius: 30px;
         border: 3.5mm ridge rgba(143, 188, 143);
+        box-shadow:
+            0 0 25px 5px #FFEFD5; /* outer cyan */
     }
     .curb{
         display: none;   
@@ -61,12 +77,26 @@
         border: 0.4mm ridge rgba(165, 42, 42);
         border-radius: 20px;
     }
+    .old_gerb_image{
+        width: 7%;
+        position: fixed;
+        top: 0.6vw;
+        left: 18%;
+    }
+    .nadpis_image{
+        width: 35%;
+        position: fixed;
+        top: 0.8vw;
+        left: 32%;
+    }
     #map{
         width: 60%;
         height: 70%;
         margin: 0 auto;
         border-radius: 30px;
         border: 3.5mm ridge rgba(143, 188, 143);
+        box-shadow:
+            0 0 25px 5px #FFEFD5; /* outer cyan */
     }
     .curb{
         width: 100%;
