@@ -21,6 +21,9 @@
     .div-image{
         height: 25%;
     }
+    .collor_white{
+        display: none;
+    }
     .logo-image{
         width: 50%;
         position: fixed;
