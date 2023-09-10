@@ -4,25 +4,27 @@
   <base target="_top">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <title>Интернет музей г.Ярославль</title>
-  
+
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />           <!--favicon-->
   <link href="css/vsplivaushee_okno.css" rel="stylesheet" type="text/css" media="screen" >  <!--Всплывающее окно-->
   <link href="css/index.css" rel="stylesheet" type="text/css" media="screen" >  <!--css страницы-->
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
 </head>
 <body>
-  <div class="div-image"><img class="logo-image" src="files/logo.png"><img class="old_gerb_image" src="files/gerb.png"><img class="nadpis_image" src="files/nadpis.png"></div>
-  
-  <div class="curb"><p style="color: #F0FFFF; margin-left: 15px;">Тел: <font color="#FFFFE0">8 (4852) 30-41-75</font></p></div>
-  
+
+  <div class="div-image"><div style="background-color: white; height: 6.3vw; width: 16%; position: fixed; top: 1.4vw; left: 1.5%; border-radius: 10px;"><img class="logo-image" src="files/logo.png"></div><img class="old_gerb_image" src="files/gerb.png"><img class="nadpis_image" src="files/nadpis.png"></div>
+  <div style="height: 2%;"></div>
+
+  <div class="curb"><div class="phone_number"><p style="color: #F0FFFF; margin-left: 1vw;">Тел: <font color="#FFFFE0">8 (4852) 30-41-75</font></p></div></div>
+
   <div align="left" id='map'></div>
 
   <div class="dm-overlay" id="win1" style="margim: 0 auto;">
@@ -49,7 +51,7 @@
       let modelHram = document.getElementById("modelHram")
     let win1 = document.getElementById("win1")
 
-    
+
       console.log("Function showmode is working")
       modelHram.src = "files/3D_files/cerkov_ioanna_zlatausta.glb"
     win1.style.display = "flex"
@@ -63,7 +65,7 @@
       modelHram.src = "files/3D_files/cerkov_nikolaya_chudotvorca.glb"
 
     win1.style.display = "flex"
-    
+
     }
 
     const map = L.map('map', {
@@ -90,14 +92,14 @@
 
     const mSol = L.marker(hram1).addTo(map).bindPopup(`Церковь Богоявления Господня <br><br> <button onclick="window.location.href = 'https://lucas23456.github.io/yarmesuem/yar10.html';">360°</button>`);
     const mMizar = L.marker(hram2).addTo(map).bindPopup(`Церковь Николая Чудотворца <br><br> <p style="text-align: center;"><button onclick="showmodel1()">3D</button></p>`).on('click', ToMakeWork);
-    const mKruegerZ = L.marker(hram3).addTo(map).bindPopup(`Церковь Иоанна Златауста <br><br> <p style="text-align: center;"><button onclick="showmodel()">3D</button></p>`).on('click', ToMakeWork); 
+    const mKruegerZ = L.marker(hram3).addTo(map).bindPopup(`Церковь Иоанна Златауста <br><br> <p style="text-align: center;"><button onclick="showmodel()">3D</button></p>`).on('click', ToMakeWork);
   const mDeneb = L.marker(hram4).addTo(map).bindPopup(`Стрелка <br><br> <button onclick="window.location.href = 'https://lucas23456.github.io/yarmesuem/';">360°</button>`);
 
   map.setView(xy(480, 480), 0);
 
     const closeBtn = document.querySelector('.close');
       const modal = document.getElementById('win1');
-      
+
       closeBtn.addEventListener('click', () => {
         modal.style.display = 'none';
       });
@@ -111,5 +113,5 @@
 
 </style>
 
-</body> 
+</body>
 </html>
