@@ -84,6 +84,16 @@
       return yx(y, x); // When doing xy(x, y);
     }
 
+
+        const bounds = [xy(0, 0), xy(1000, 1000)]; // Replace these coordinates with your map bounds
+    const image = L.imageOverlay('files/maps/old_Yaroslavl.jpg', bounds).addTo(map);
+
+    const topLeft = xy(0, 0); // Define top-left corner coordinates
+    const bottomRight = xy(1000, 1000); // Define bottom-right corner coordinates
+    const boundsLatLng = L.latLngBounds(topLeft, bottomRight);
+    map.setMaxBounds(boundsLatLng);
+
+
 var customIcon = L.icon({
   iconUrl: 'https://media.discordapp.net/attachments/867331641918619649/1149724444412100618/1679990490_phonoteka_org_p_ikonka_mestopolozhenie_oboi_krasivo_16.png?width=188&height=300',
   iconSize: [30, 45],
