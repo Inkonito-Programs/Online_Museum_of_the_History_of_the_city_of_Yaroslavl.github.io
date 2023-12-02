@@ -82,16 +82,18 @@
       return yx(y, x); // When doing xy(x, y);
     }
 
-    var customIcon = L.icon({
-      iconUrl: 'https://media.discordapp.net/attachments/867331641918619649/1149724444412100618/1679990490_phonoteka_org_p_ikonka_mestopolozhenie_oboi_krasivo_16.png?width=188&height=300',
-      iconSize: [30, 45],
-      iconAnchor: [16, 16],
-    });
-    var tours3d = L.icon({
-      iconUrl: 'https://media.discordapp.net/attachments/867331641918619649/1154460058135040161/V_-_PLUS.png?width=190&height=300',
-      iconSize: [30, 45],
-      iconAnchor: [16, 16],
-  });
+var customIcon = L.icon({
+  iconUrl: 'https://media.discordapp.net/attachments/867331641918619649/1149724444412100618/1679990490_phonoteka_org_p_ikonka_mestopolozhenie_oboi_krasivo_16.png?width=188&height=300',
+  iconSize: [30, 45],
+  iconAnchor: [15, 45], // Adjust the iconAnchor for proper positioning
+});
+
+var tours3d = L.icon({
+  iconUrl: 'https://media.discordapp.net/attachments/867331641918619649/1154460058135040161/V_-_PLUS.png?width=190&height=300',
+  iconSize: [30, 45],
+  iconAnchor: [15, 45], // Adjust the iconAnchor for proper positioning
+});
+
 
     const bounds = [xy(-25, -26.5), xy(1023, 1021.5)];
     const image = L.imageOverlay('files/maps/old_Yaroslavl.jpg', bounds).addTo(map);
