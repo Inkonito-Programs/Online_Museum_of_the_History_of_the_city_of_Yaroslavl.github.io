@@ -82,6 +82,17 @@
       return yx(y, x); // When doing xy(x, y);
     }
 
+    var customIcon = L.icon({
+      iconUrl: 'https://media.discordapp.net/attachments/867331641918619649/1149724444412100618/1679990490_phonoteka_org_p_ikonka_mestopolozhenie_oboi_krasivo_16.png?width=188&height=300',
+      iconSize: [30, 45],
+      iconAnchor: [16, 16],
+    });
+    var tours3d = L.icon({
+      iconUrl: 'https://media.discordapp.net/attachments/867331641918619649/1154460058135040161/V_-_PLUS.png?width=190&height=300',
+      iconSize: [30, 45],
+      iconAnchor: [16, 16],
+  });
+
     const bounds = [xy(-25, -26.5), xy(1023, 1021.5)];
     const image = L.imageOverlay('files/maps/old_Yaroslavl.jpg', bounds).addTo(map);
 
@@ -90,7 +101,7 @@
     const hram3 = xy(947.0, 113.0);//Маркер используется
     const hram4 = xy(975.0, 20.0);//Маркер используется
 
-    const mSol = L.marker(hram1).addTo(map).bindPopup(`Церковь Богоявления Господня <br><br> <button onclick="window.location.href = 'https://lucas23456.github.io/yarmesuem/yar10.html';">360°</button>`);
+    const mSol = L.marker(hram1,{icon: customIcon}).addTo(map).bindPopup(`Церковь Богоявления Господня <br><br> <button onclick="window.location.href = 'https://lucas23456.github.io/yarmesuem/yar10.html';">360°</button>`);
     const mMizar = L.marker(hram2).addTo(map).bindPopup(`Церковь Николая Чудотворца <br><br> <p style="text-align: center;"><button onclick="showmodel1()">3D</button></p>`).on('click', ToMakeWork);
     const mKruegerZ = L.marker(hram3).addTo(map).bindPopup(`Церковь Иоанна Златауста <br><br> <p style="text-align: center;"><button onclick="showmodel()">3D</button></p>`).on('click', ToMakeWork);
   const mDeneb = L.marker(hram4).addTo(map).bindPopup(`Стрелка <br><br> <button onclick="window.location.href = 'https://lucas23456.github.io/yarmesuem/';">360°</button>`);
