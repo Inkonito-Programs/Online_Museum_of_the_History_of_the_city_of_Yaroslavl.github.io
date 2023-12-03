@@ -45,6 +45,7 @@
         left: 2.4%;
     }
     #map{
+	position: relative;
         width: 90%;
         height: 70%;
         margin: 0 auto;
@@ -61,6 +62,7 @@
 /*Для экранов размером больше 1024 пикселей*/
 @media screen and (min-width: 1024px){
     html, body {
+     overflow: hidden;
      height: 100%;
      margin: 0;
      background: url(../files/fon-forPC.jpg) no-repeat center center fixed;/*Растягиваем фоновую картинку на весь экран (адаптация)*/

@@ -9,6 +9,7 @@
 
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />           <!--favicon-->
   <link href="css/vsplivaushee_okno.css" rel="stylesheet" type="text/css" media="screen" >  <!--Всплывающее окно-->
+  <link href="css/vsplivaushee_bokovoe_okno.css" rel="stylesheet" type="text/css" media="screen" > <!--Всплывающее боковое окно-->
   <link href="css/index.css" rel="stylesheet" type="text/css" media="screen" >  <!--css страницы-->
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
@@ -25,7 +26,8 @@
 
   <div class="curb"><div class="phone_number"><p style="color: #F0FFFF; margin-left: 1vw;">Тел: <font color="#FFFFE0">8 (4852) 30-41-75</font></p></div></div>
 
-  <div align="left" id='map'></div>
+
+  <div align="left" class="map" id='map'><a class="btn-modal" href="#modal-block">путеводитель</a></div>
 
   <div class="dm-overlay" id="win1" style="margim: 0 auto;">
     <div class="dm-table" id="dm-table">
@@ -42,75 +44,131 @@
       </div>
     </div>
   </div>
-  <script>
+
+  <!--Боковое всплывающее окно (PC)-->
+  <div class="bokovoe_okno_pc">
+    <input type="checkbox" id="side-checkbox" />
+    <div class="side-panel">
+        <label class="side-button-2" for="side-checkbox">+</label>
+        <div class="side-title">Путеводитель по карте:</div>
+        <iframe id="myFrame" class="frame_bok_menu" src="str/petevoditel.html" frameBorder="0"></iframe>
+    </div>
+    <div class="side-button-1-wr">
+        <label class="side-button-1" for="side-checkbox">
+            <div class="side-b side-open">путеводитель</div>
+        </label>
+    </div>
+  </div>
+
+  <!-- Модальное окно (phone)-->
+  <div class="bokovoe_okno_phone">
+    <!-- Содержимое модального окна -->
+    <div id="modal-block">
+      <h3>Путеводитель по карте</h3>
+      </br>
+      <a class="close-block" href="#close-block">X</a>
+      <iframe id="myFrame2" class="frame_bok_menu2" src="str/petevoditel.html" frameBorder="0"></iframe>
+    </div>
+  </div>
+
+<script>
     function ToMakeWork(){
-    console.warn(`yar`)
-    }
+        console.warn(`yar`)
+        }
 
-  function showmodel(){
+    function showmodel0(){
       let modelHram = document.getElementById("modelHram")
-    let win1 = document.getElementById("win1")
+      let win1 = document.getElementById("win1")
 
-
-      console.log("Function showmode is working")
       modelHram.src = "files/3D_files/cerkov_ioanna_zlatausta.glb"
-    win1.style.display = "flex"
-
+      win1.style.display = "flex"
     }
 
     function showmodel1(){
       let modelHram = document.getElementById("modelHram")
-    let win1 = document.getElementById("win1")
+      let win1 = document.getElementById("win1")
 
       modelHram.src = "files/3D_files/cerkov_nikolaya_chudotvorca.glb"
-
-    win1.style.display = "flex"
-
+      win1.style.display = "flex"
     }
+
+    function showmodel2(){
+      let modelHram = document.getElementById("modelHram")
+      let win1 = document.getElementById("win1")
+
+      modelHram.src = "files/3D_files/cerkov_na_bozhedomke.glb"
+      win1.style.display = "flex"
+    }
+
 
     const map = L.map('map', {
       crs: L.CRS.Simple,
-      minZoom: -3
+      minZoom: -1,
+      maxZoom: 4
     });
 
     const yx = L.latLng;
 
     function xy(x, y) {
-      if (Array.isArray(x)) { // When doing xy([x, y]);
+      if (Array.isArray(x)) {
         return yx(x[1], x[0]);
       }
-      return yx(y, x); // When doing xy(x, y);
+      return yx(y, x);
     }
 
-    const bounds = [xy(-25, -26.5), xy(1023, 1021.5)];
+    const bounds = [xy(0, 0), xy(1000, 1000)]; // Replace these coordinates with your map bounds
     const image = L.imageOverlay('files/maps/old_Yaroslavl.jpg', bounds).addTo(map);
 
-    const hram1 = xy(682.0, 110.0);//Маркер используется
-    const hram2 = xy(927.0, 82.0);
-    const hram3 = xy(947.0, 113.0);//Маркер используется
-    const hram4 = xy(975.0, 20.0);//Маркер используется
+    const topLeft = xy(0, 0); // Define top-left corner coordinates
+    const bottomRight = xy(1000, 1000); // Define bottom-right corner coordinates
+    const boundsLatLng = L.latLngBounds(topLeft, bottomRight);
+    map.setMaxBounds(boundsLatLng);
 
-    const mSol = L.marker(hram1).addTo(map).bindPopup(`Церковь Богоявления Господня <br><br> <button onclick="window.location.href = 'https://lucas23456.github.io/yarmesuem/yar10.html';">360°</button>`);
-    const mMizar = L.marker(hram2).addTo(map).bindPopup(`Церковь Николая Чудотворца <br><br> <p style="text-align: center;"><button onclick="showmodel1()">3D</button></p>`).on('click', ToMakeWork);
-    const mKruegerZ = L.marker(hram3).addTo(map).bindPopup(`Церковь Иоанна Златауста <br><br> <p style="text-align: center;"><button onclick="showmodel()">3D</button></p>`).on('click', ToMakeWork);
-  const mDeneb = L.marker(hram4).addTo(map).bindPopup(`Стрелка <br><br> <button onclick="window.location.href = 'https://lucas23456.github.io/yarmesuem/';">360°</button>`);
+    map.setView(xy(500, 500), 0); // Set initial view center and zoom level
 
-  map.setView(xy(480, 480), 0);
+    const customIcon = L.icon({
+      iconUrl: 'files/other/3d-cube.png',
+      iconSize: [30, 45],
+      iconAnchor: [15, 25],
+    });
 
-    const closeBtn = document.querySelector('.close');
+    const tours_360 = L.icon({
+      iconUrl: 'files/other/360-view.png',
+      iconSize: [45, 45],
+      iconAnchor: [25, 25],
+    });
+
+
+    const hram1 = xy(685.0, 130.0);//Маркер используется <<Церковь Богоявления Господня 360>>
+    const hram2 = xy(872.0, 110.0);//Маркер используется <<Церковь Николая Чудотворца 3D>>
+    const hram3 = xy(928.0, 130.0);//Маркер используется <<Церковь Иоанна Златауста 3D>>
+    const hram4 = xy(955.0, 46.5);//Маркер используется <<Стрелка 3D>>
+    const hram5 = xy(141.0, 430.5);//Маркер используется <<Храм на Божедомке>>
+
+    const mSol = L.marker(hram1,{icon: tours_360}).addTo(map).bindPopup(`Церковь Богоявления Господня <br><br> <button onclick="window.location.href = 'https://lucas23456.github.io/yarmesuem/yar10.html';">360°</button>`);
+    const mMizar = L.marker(hram2,{icon: customIcon}).addTo(map).bindPopup(`Церковь Николая Чудотворца <br><br> <p style="text-align: center;"><button onclick="showmodel1()">3D</button></p>`).on('click', ToMakeWork);
+    const mKruegerZ = L.marker(hram3,{icon: customIcon}).addTo(map).bindPopup(`Церковь Иоанна Златауста <br><br> <p style="text-align: center;"><button onclick="showmodel0()">3D</button></p>`).on('click', ToMakeWork);
+    const mDeneb = L.marker(hram4,{icon: tours_360}).addTo(map).bindPopup(`Стрелка <br><br> <button onclick="window.location.href = 'https://lucas23456.github.io/yarmesuem/';">360°</button>`);
+    const mSCS = L.marker(hram5,{icon: customIcon}).addTo(map).bindPopup(`Божедомка <br><br> <p style="text-align: center;"><button onclick="showmodel2()">3D</button></p>`).on('click', ToMakeWork);
+
+    // Add more markers similarly if needed
+
+
+        const closeBtn = document.querySelector('.close');
       const modal = document.getElementById('win1');
 
       closeBtn.addEventListener('click', () => {
         modal.style.display = 'none';
       });
+
 </script>
+
 
 <style>
 .leaflet-container {
     background: #fff;
     outline: 0;
 }
-
 </style>
 
 </body>

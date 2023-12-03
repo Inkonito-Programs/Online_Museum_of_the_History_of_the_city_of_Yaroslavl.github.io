@@ -1,0 +1,11 @@
+body::-webkit-scrollbar {
+  width: 10px;               /* ширина scrollbar */
+}
+body::-webkit-scrollbar-track {
+  background: SlateGray;        /* цвет дорожки #607d8b */
+}
+body::-webkit-scrollbar-thumb {
+  background-color: DarkGrey;    /* цвет плашки */
+  border-radius: 20px;       /* закругления плашки */
+  border: 3px solid DarkGrey;  /* padding вокруг плашки */
+}
