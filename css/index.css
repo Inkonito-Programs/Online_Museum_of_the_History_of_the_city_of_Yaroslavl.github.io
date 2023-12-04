@@ -12,7 +12,7 @@
     html, body {
           height: 100%;
           margin: 0;
-          background: url(../files/fon.jpg) no-repeat center center fixed;/*Растягиваем фоновую картинку на весь экран (адаптация)*/
+          background: url(../files/fon.webp) no-repeat center center fixed;/*Растягиваем фоновую картинку на весь экран (адаптация)*/
            -webkit-background-size: cover;
            -moz-background-size: cover;
            -o-background-size: cover;
