@@ -99,6 +99,15 @@
       modelHram.src = "files/3D_files/cerkov_na_bozhedomke.glb"
       win1.style.display = "flex"
     }
+    
+    function showmodel3(){
+      let modelHram = document.getElementById("modelHram")
+      let win1 = document.getElementById("win1")
+
+      modelHram.src = "files/3D_files/uspenskiy_sobor.glb"
+      win1.style.display = "flex"
+    }
+
 
 
     const map = L.map('map', {
@@ -144,12 +153,14 @@
     const hram3 = xy(928.0, 130.0);//Маркер используется <<Церковь Иоанна Златауста 3D>>
     const hram4 = xy(955.0, 46.5);//Маркер используется <<Стрелка 3D>>
     const hram5 = xy(141.0, 430.5);//Маркер используется <<Храм на Божедомке>>
+    const hram6 = xy(932.5, 95.5);//Маркер используется <<Кафедральный Успенский собор>>
 
-    const mSol = L.marker(hram1,{icon: tours_360}).addTo(map).bindPopup(`Церковь Богоявления Господня <br><br> <button onclick="window.location.href = 'https://lucas23456.github.io/yarmesuem/yar10.html';">360°</button>`);
+    const mSol = L.marker(hram1,{icon: tours_360}).addTo(map).bindPopup(`Церковь Богоявления Господня <br><br> <button onclick="window.location.href = 'str/panorama_yar10.html';">360°</button>`);
     const mMizar = L.marker(hram2,{icon: customIcon}).addTo(map).bindPopup(`Церковь Николая Чудотворца <br><br> <p style="text-align: center;"><button onclick="showmodel1()">3D</button></p>`).on('click', ToMakeWork);
     const mKruegerZ = L.marker(hram3,{icon: customIcon}).addTo(map).bindPopup(`Церковь Иоанна Златауста <br><br> <p style="text-align: center;"><button onclick="showmodel0()">3D</button></p>`).on('click', ToMakeWork);
-    const mDeneb = L.marker(hram4,{icon: tours_360}).addTo(map).bindPopup(`Стрелка <br><br> <button onclick="window.location.href = 'https://lucas23456.github.io/yarmesuem/';">360°</button>`);
+    const mDeneb = L.marker(hram4,{icon: tours_360}).addTo(map).bindPopup(`Стрелка <br><br> <button onclick="window.location.href = 'str/panorama_strelka.html';">360°</button>`);
     const mSCS = L.marker(hram5,{icon: customIcon}).addTo(map).bindPopup(`Божедомка <br><br> <p style="text-align: center;"><button onclick="showmodel2()">3D</button></p>`).on('click', ToMakeWork);
+    const mDLP = L.marker(hram6,{icon: customIcon}).addTo(map).bindPopup(`Кафедральный Успенский собор <br><br> <p style="text-align: center;"><button onclick="showmodel3()">3D</button></p>`).on('click', ToMakeWork);
 
     // Add more markers similarly if needed
 
