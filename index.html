@@ -21,7 +21,7 @@
 </head>
 <body>
 
-  <div class="div-image"><div class='collor_white' style="background-color: white; height: 6.3vw; width: 16%; position: fixed; top: 1.4vw; left: 1.5%; border-radius: 10px;"><img class="logo-image" src="files/logo.webp"></div><img class="old_gerb_image" src="files/gerb.webp"><img class="nadpis_image" src="files/nadpis.webp"></div>
+  <div class="div-image"><div class='collor_white' style="background-color: white; height: 6.3vw; width: 16%; position: fixed; top: 1.4vw; left: 1.5%; border-radius: 10px;"><img class="logo-image" src="files/logo.png"></div><img class="old_gerb_image" src="files/gerb.png"><img class="nadpis_image" src="files/nadpis.png"></div>
   <div style="height: 2%;"></div>
 
   <div class="curb"><div class="phone_number"><p style="color: #F0FFFF; margin-left: 1vw;">Тел: <font color="#FFFFE0">8 (4852) 30-41-75</font></p></div></div>
@@ -99,12 +99,19 @@
       modelHram.src = "files/3D_files/cerkov_na_bozhedomke.glb"
       win1.style.display = "flex"
     }
-    
+
     function showmodel3(){
       let modelHram = document.getElementById("modelHram")
       let win1 = document.getElementById("win1")
 
       modelHram.src = "files/3D_files/uspenskiy_sobor.glb"
+      win1.style.display = "flex"
+    }
+    function showmodel4(){
+      let modelHram = document.getElementById("modelHram")
+      let win1 = document.getElementById("win1")
+
+      modelHram.src = "files/3D_files/ilyinsko_tihonovskaya_cerkov.glb"
       win1.style.display = "flex"
     }
 
@@ -126,7 +133,7 @@
     }
 
     const bounds = [xy(0, 0), xy(1000, 1000)]; // Replace these coordinates with your map bounds
-    const image = L.imageOverlay('files/maps/old_Yaroslavl.webp', bounds).addTo(map);
+    const image = L.imageOverlay('files/maps/old_Yaroslavl.jpg', bounds).addTo(map);
 
     const topLeft = xy(0, 0); // Define top-left corner coordinates
     const bottomRight = xy(1000, 1000); // Define bottom-right corner coordinates
@@ -154,6 +161,7 @@
     const hram4 = xy(955.0, 46.5);//Маркер используется <<Стрелка 3D>>
     const hram5 = xy(141.0, 430.5);//Маркер используется <<Храм на Божедомке>>
     const hram6 = xy(932.5, 95.5);//Маркер используется <<Кафедральный Успенский собор>>
+    const hram7 = xy(940.0, 165.0);//Маркер используется <<Ильинско-Тихоновская церковь>>
 
     const mSol = L.marker(hram1,{icon: tours_360}).addTo(map).bindPopup(`Церковь Богоявления Господня <br><br> <button onclick="window.location.href = 'str/panorama_yar10.html';">360°</button>`);
     const mMizar = L.marker(hram2,{icon: customIcon}).addTo(map).bindPopup(`Церковь Николая Чудотворца <br><br> <p style="text-align: center;"><button onclick="showmodel1()">3D</button></p>`).on('click', ToMakeWork);
@@ -161,6 +169,7 @@
     const mDeneb = L.marker(hram4,{icon: tours_360}).addTo(map).bindPopup(`Стрелка <br><br> <button onclick="window.location.href = 'str/panorama_strelka.html';">360°</button>`);
     const mSCS = L.marker(hram5,{icon: customIcon}).addTo(map).bindPopup(`Божедомка <br><br> <p style="text-align: center;"><button onclick="showmodel2()">3D</button></p>`).on('click', ToMakeWork);
     const mDLP = L.marker(hram6,{icon: customIcon}).addTo(map).bindPopup(`Кафедральный Успенский собор <br><br> <p style="text-align: center;"><button onclick="showmodel3()">3D</button></p>`).on('click', ToMakeWork);
+    const mDUK = L.marker(hram7,{icon: customIcon}).addTo(map).bindPopup(`Ильинско-Тихоновская церковь <br><br> <p style="text-align: center;"><button onclick="showmodel4()">3D</button></p>`).on('click', ToMakeWork);
 
     // Add more markers similarly if needed
 
